@@ -1,0 +1,29 @@
+import * as mocha from 'mocha';
+import * as chai from 'chai';
+import chaiHttp = require('chai-http');
+
+chai.use(chaiHttp);
+const expect = chai.expect;
+const should = chai.should();
+const body = {
+  email: 'rogerio.teixeira@hotmail.it',
+  password: 'xrte1982',
+  returnSecureToken: true
+};
+let token;
+describe('Test user router', () => {
+  it('richiama route auth', function(done) {
+    for (let i = 0; i < 16000; i++) {
+        console.log('chiamata:', i)
+      chai
+        .request('localhost:3000')
+        .get('/api/user')
+        .end(function(err, res) {
+          if (err) {
+            return done(err);
+          }
+        });
+    }
+    done()
+  });
+});
