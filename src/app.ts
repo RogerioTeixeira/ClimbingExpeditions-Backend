@@ -46,7 +46,7 @@ export default class App {
 
   public static stop(): Promise<Error | void> {
     Logger.info(`[Server] Stopping!`);
-
-    return App._instance.stop();
+    
+    return App._instance ? App._instance.stop() : null;
   }
 }

@@ -16,12 +16,12 @@ export default {
   response: {
     user: Joi.object({
       statusCode:Joi.number().required(),   
-      data: {
+      data: Joi.object({
         id: Joi.string().required(),
         email: Joi.string().required(),
         name:Joi.string(),
         lastSignin:Joi.date().required()
-      }
-    })
+      }).label('user')
+    }).label('response')
   }
 };
