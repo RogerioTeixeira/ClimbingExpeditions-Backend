@@ -12,7 +12,7 @@ export default class UserController extends BaseController<UserResolver> {
   public async getById(request: Request, r: ResponseToolkit) {
     const user = await this.resolver.findById(request.params.id)
     if(!user){
-      return Boom.badRequest('userid not found');
+      return Boom.notFound('userid not found');
     }
     return ResponseManager.ResponseWithData(user);
   }
@@ -21,7 +21,7 @@ export default class UserController extends BaseController<UserResolver> {
     const credentials: any = request.auth.credentials
     const user = await this.resolver.findOneByUid(credentials.uid)
     if(!user){
-      return Boom.badRequest('userid not found');
+      return Boom.notFound('userid not found');
     }
     return ResponseManager.ResponseWithData(user);
   }
