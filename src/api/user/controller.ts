@@ -31,7 +31,7 @@ export default class UserController extends BaseController<UserResolver> {
       const credentials: any = request.auth.credentials;
       const payload: any = request.payload;
       const user: any = {
-        name: payload.name,
+        name: credentials.name,
         email: credentials.email,
         uid: credentials.uid
       };

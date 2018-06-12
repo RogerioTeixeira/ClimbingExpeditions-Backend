@@ -19,7 +19,7 @@ export default {
       data: Joi.object({
         id: Joi.string().required(),
         email: Joi.string().required(),
-        name:Joi.string(),
+        name:Joi.string().required(),
         lastSignin:Joi.date().required()
       }).label('user')
     }).label('response')

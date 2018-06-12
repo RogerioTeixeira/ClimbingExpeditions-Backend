@@ -26,7 +26,6 @@ export default class UserRoutes {
             description: 'Create user',
             notes: 'Create user',
             tags: ['api' , 'user'],
-            validate: validate.request.create,
             auth: 'default',
             response: {
               schema: validate.response.user,
